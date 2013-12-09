@@ -1,6 +1,8 @@
 package de.se_rwth.codecraft.game.creatures;
 
-public abstract class BasicCreature implements Creature
+import java.util.Observable;
+
+public abstract class BasicCreature extends Observable implements Creature
 {
 	private long _health;
 	private long _maxHealth;
@@ -25,6 +27,9 @@ public abstract class BasicCreature implements Creature
 		}
 		else
 			_health -= damage;
+
+		setChanged();
+		notifyObservers();
 	}
 
 	public BasicCreature(long health, long maxHealth, long armor, long attackPower)

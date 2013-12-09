@@ -60,4 +60,16 @@ public class CreatureTests {
 		for (Creature creature : goblins)
 			assertEquals(76, creature.GetHealth());
 	}
+
+	@Test
+	public void test4() {
+		Goblin goblin = new Goblin();
+		Orc orc = new Orc();
+
+		long power = orc.GetAttackPower();
+		goblin.addObserver(orc);
+		goblin.TakeDamage(13);
+
+		assertEquals(power + 3, orc.GetAttackPower());
+	}
 }
