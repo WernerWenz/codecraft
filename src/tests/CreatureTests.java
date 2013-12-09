@@ -2,6 +2,9 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import de.se_rwth.codecraft.game.creatures.*;
@@ -40,4 +43,21 @@ public class CreatureTests {
 		assertEquals(69, armoredGoblin.Clone().GetHealth());
 	}
 
+	@Test
+	public void test3() {
+		Creature goblin = new Goblin();
+		
+		List<Creature> goblins = new ArrayList<Creature>();
+		CompositeCreature army = new CompositeCreature();
+		for (int i = 0; i < 5; i++)
+		{
+			Creature gob = goblin.Clone();
+			goblins.add(gob);
+			army.Add(gob);
+		}
+
+		army.TakeDamage(7);
+		for (Creature creature : goblins)
+			assertEquals(76, creature.GetHealth());
+	}
 }
