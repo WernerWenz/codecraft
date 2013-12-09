@@ -9,5 +9,5 @@ public class Ogre implements Creature
 	public long getHealth() { throw new NotImplementedException(); }
 	public long getMaxHealth() { throw new NotImplementedException(); }
 	public void takeDamage(long damage) { throw new NotImplementedException(); }
-	public Ogre Clone() { throw new NotImplementedException(); }
+	public Ogre Clone() { return new Ogre(); }
 }

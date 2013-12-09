@@ -9,5 +9,5 @@ public class Goblin implements Creature
 	public long getHealth() { throw new NotImplementedException(); }
 	public long getMaxHealth() { throw new NotImplementedException(); }
 	public void takeDamage(long damage) { throw new NotImplementedException(); }
-	public Goblin Clone() { throw new NotImplementedException(); }
+	public Goblin Clone() { return new Goblin(); }
 }
