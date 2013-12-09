@@ -1,13 +1,16 @@
 package de.se_rwth.codecraft.game.creatures;
 
-import de.se_rwth.codecraft.exception.*;
-
-public class Ogre implements Creature
+public class Ogre extends BasicCreature
 {
-	public long getArmor(){ throw new NotImplementedException(); }
-	public long getAttackPower() { throw new NotImplementedException(); }
-	public long getHealth() { throw new NotImplementedException(); }
-	public long getMaxHealth() { throw new NotImplementedException(); }
-	public void takeDamage(long damage) { throw new NotImplementedException(); }
-	public Ogre Clone() { return new Ogre(); }
+	public Ogre()
+	{
+		super(200, 200, 20, 20);
+	}
+
+	public Ogre Clone()
+	{
+		Ogre ogre = new Ogre();
+		ogre.CopyFrom(this); // clone this exact entity
+		return ogre;
+	}
 }
