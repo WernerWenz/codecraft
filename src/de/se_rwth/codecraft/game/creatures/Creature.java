@@ -7,6 +7,6 @@ public interface Creature extends Cloneable<Creature>
 	public long GetArmor();
 	public long GetAttackPower();
 	public long GetHealth();
+	public void SetHealth(long damage);
 	public long GetMaxHealth();
-	public void TakeDamage(long damage);
 }

@@ -7,8 +7,8 @@ public class CreatureDecorator implements Creature
 	public long GetArmor(){ return decoratedCreature.GetArmor();  }
 	public long GetAttackPower() { return decoratedCreature.GetAttackPower(); }
 	public long GetHealth() { return decoratedCreature.GetHealth(); }
+	public void SetHealth(long damage) { decoratedCreature.SetHealth(damage); }
 	public long GetMaxHealth() { return decoratedCreature.GetMaxHealth(); }
-	public void TakeDamage(long damage) { decoratedCreature.TakeDamage(damage); }
 
 	CreatureDecorator(Creature decoratedCreature)
 	{

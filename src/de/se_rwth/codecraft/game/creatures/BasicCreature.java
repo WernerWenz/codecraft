@@ -14,20 +14,11 @@ public abstract class BasicCreature extends Observable implements Creature
 	public long GetHealth() { return _health; }
 	public long GetMaxHealth() { return _maxHealth; }
 
-	public void TakeDamage(long damage)
+	public void SetHealth(long health)
 	{
-		damage -= GetArmor(); // This will horribly break the Decorator usage!
-		// This bug is here in place on purpose, in order to demonstrate
-		// a downside for 7.3e)
-
-		if (damage >= GetHealth())
-		{
-			// The poor creature died
-			_health = 0;
-		}
-		else
-			_health -= damage;
-
+		if (_health == health)
+			return;
+		_health = health;
 		setChanged();
 		notifyObservers();
 	}

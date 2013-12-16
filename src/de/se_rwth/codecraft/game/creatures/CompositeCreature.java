@@ -29,11 +29,12 @@ public class CompositeCreature implements Creature
 	public long GetHealth() { throw new NotImplementedException(); }
 	public long GetMaxHealth() { throw new NotImplementedException(); }
 	
-	// Do damage to all mobs, testing the composite
-	public void TakeDamage(long damage) 
+	public void SetHealth(long damage)
 	{ 
-		for (Creature creature : _creatures)
-			creature.TakeDamage(damage);
+		// Doesn't make sense anymore when using the controller
+		// But this composite was illogical and made up anyway.
+		// It's sole purpose of existence were the requirements of the exercise.
+		throw new NotImplementedException();
 	}
 	
 	public CompositeCreature Clone()
