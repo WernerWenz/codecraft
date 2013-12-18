@@ -88,6 +88,8 @@ public class Fight extends Observable
 			throw new FightException();
 
 		_context.GenerateRound();
+		setChanged();
+		notifyObservers(_context.GetLastCommand());
 		_context.SwapCreatures();
 
 		return true; // just a stub for now
