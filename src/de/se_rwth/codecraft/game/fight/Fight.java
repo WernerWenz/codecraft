@@ -1,12 +1,13 @@
 package de.se_rwth.codecraft.game.fight;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Observable;
 
 import de.se_rwth.codecraft.exception.FightException;
 import de.se_rwth.codecraft.game.creatures.Creature;
 import de.se_rwth.codecraft.game.fight.controllers.CreatureController;
 
-public class Fight
+public class Fight extends Observable
 {
 	private Creature _left;
 	private Creature _right;
@@ -15,7 +16,7 @@ public class Fight
 
 	private static final int MAX_STEPS = 10000;
 
-	private CreatureController CreateControllerFor(Creature creature)
+	public static CreatureController CreateControllerFor(Creature creature)
 	{
 		// This is probably a really nasty place.
 		// We need to instance a FightController for given Creature
