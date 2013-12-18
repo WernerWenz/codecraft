@@ -21,4 +21,10 @@ public class ArmoredCreature extends CreatureDecorator
 	{
 		return new ArmoredCreature(decoratedCreature, _armor);
 	}
+
+	@Override
+	public String GetName()
+	{
+		return String.format("%1$s with an Armor", super.GetName());
+	}
 }

@@ -9,4 +9,6 @@ public interface Creature extends Cloneable<Creature>
 	public long GetHealth();
 	public void SetHealth(long damage);
 	public long GetMaxHealth();
+	public String GetName();
+	public void SetName(String name);
 }

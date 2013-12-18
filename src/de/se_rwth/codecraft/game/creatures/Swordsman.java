@@ -16,4 +16,10 @@ public class Swordsman extends CreatureDecorator
 	{
 		return new Swordsman(decoratedCreature);
 	}
+
+	@Override
+	public String GetName()
+	{
+		return String.format("%1$s with a Sword", super.GetName());
+	}
 }

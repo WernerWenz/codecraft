@@ -9,6 +9,7 @@ public class CreatureDecorator implements Creature
 	public long GetHealth() { return decoratedCreature.GetHealth(); }
 	public void SetHealth(long damage) { decoratedCreature.SetHealth(damage); }
 	public long GetMaxHealth() { return decoratedCreature.GetMaxHealth(); }
+	public Creature GetDecoratedCreature() { return decoratedCreature; }
 
 	CreatureDecorator(Creature decoratedCreature)
 	{
@@ -18,5 +19,15 @@ public class CreatureDecorator implements Creature
 	public Creature Clone()
 	{
 		return new CreatureDecorator(decoratedCreature);
+	}
+	@Override
+	public String GetName()
+	{
+		return decoratedCreature.GetName();
+	}
+	@Override
+	public void SetName(String name)
+	{
+		decoratedCreature.SetName(name);
 	}
 }

@@ -42,4 +42,16 @@ public class CompositeCreature implements Creature
 		// Clone the group-state or clone every entity inside?
 		throw new NotImplementedException();
 	}
+
+	@Override
+	public String GetName()
+	{
+		throw new NotImplementedException();
+	}
+
+	@Override
+	public void SetName(String name)
+	{
+		throw new NotImplementedException();
+	}
 }

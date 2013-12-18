@@ -8,11 +8,25 @@ public abstract class BasicCreature extends Observable implements Creature
 	private long _maxHealth;
 	private long _armor;
 	private long _attackPower;
+	private String _name;
 
 	public long GetArmor() { return _armor; }
 	public long GetAttackPower() { return _attackPower; }
 	public long GetHealth() { return _health; }
 	public long GetMaxHealth() { return _maxHealth; }
+
+	public String GetName()
+	{
+		if (_name == null)
+			return this.getClass().getName();
+
+		return _name;
+	}
+
+	public void SetName(String name)
+	{
+		_name = name;
+	}
 
 	public void SetHealth(long health)
 	{
