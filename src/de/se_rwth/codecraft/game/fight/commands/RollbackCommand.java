@@ -7,10 +7,14 @@ public class RollbackCommand implements FightCommand
 {
 	private FightCommand _command;
 	private FightContext _context;
+	private String _log;
 
 	@Override
 	public void Execute(FightContext context)
 	{
+		_log = String.format("%1$s casted TempusRetorque and cancelled the last action.",
+				context.GetActive().GetModel().GetName());
+
 		if (_command == null)
 		{
 			_command = context.GetLastCommand();
@@ -33,5 +37,11 @@ public class RollbackCommand implements FightCommand
 			return;
 
 		_command.Execute(_context);
+	}
+
+	@Override
+	public String GetTextLog()
+	{
+		return _log;
 	}
 }

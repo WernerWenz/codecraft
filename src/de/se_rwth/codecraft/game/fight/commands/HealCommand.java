@@ -34,4 +34,10 @@ public class HealCommand implements FightCommand
 	{
 		_me.SetHealth(_originalHP);
 	}
+
+	@Override
+	public String GetTextLog()
+	{
+		return String.format("%1$s healed himself for %2$d.", _me.GetName(), _hitpoints);
+	}
 }

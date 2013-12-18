@@ -23,4 +23,9 @@ public interface FightCommand
 	 * after a rollback is issued in order to allow rollbacks of rollbacks.
 	 */
 	void Rollback();
+
+	/**
+	 * @return A Textual Log of the Fight action
+	 */
+	String GetTextLog();
 }

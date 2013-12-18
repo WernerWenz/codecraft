@@ -11,6 +11,7 @@ public class AttackCommand implements FightCommand
 	private Creature _foe;
 	private Boolean _successful;
 	private long _successRate = 70;
+	private String _log;
 
 	public Boolean WasSuccessful()
 	{
@@ -31,7 +32,11 @@ public class AttackCommand implements FightCommand
 
 		_successful = context.Dice(100) <= _successRate;
 		if (!_successful)
+		{
+			_log = String.format("%1$s Attacked %2$s and missed.",
+					context.GetActive().GetModel().GetName(), context.GetPassive().GetModel().GetName());
 			return;
+		}
 
 		Creature me = context.GetActive().GetModel();
 		_foe = context.GetPassive().GetModel();
@@ -50,6 +55,9 @@ public class AttackCommand implements FightCommand
 		if (health < 0)
 			health = 0;
 
+		_log = String.format("%1$s Attacked %2$s and hit for %3$d.",
+				context.GetActive().GetModel().GetName(), context.GetPassive().GetModel().GetName(), damage);
+
 		_foe.SetHealth(health);
 	}
 
@@ -61,5 +69,11 @@ public class AttackCommand implements FightCommand
 
 		_foe.SetHealth(_originalHitpoints);
 		_foe = null;
+	}
+
+	@Override
+	public String GetTextLog()
+	{
+		return _log;
 	}
 }
